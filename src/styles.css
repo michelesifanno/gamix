@@ -269,10 +269,14 @@ vertical-align: middle;
 }
 .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.buttonCerca.css-19z2ken-MuiButtonBase-root-MuiIconButton-root
 {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  background-color: #e6ff70;
-  border-radius: 5px;
-  color:#121212;
+  font-size: 14px!important;
+  font-weight: 700!important;
+  text-transform: uppercase!important;
+  background-color: #e6ff70!important;
+  border-radius: 5px!important;
+  color:#121212!important;
+}
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-i6s8oy
+{
+  display: none !important;
 }
