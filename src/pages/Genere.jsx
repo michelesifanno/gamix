@@ -11,6 +11,10 @@ function Genere() {
   const { slug } = useParams();
   const { giochi, error, loading } = getGameByGenre(currentPage, slug);
 
+  const words = slug.split('-');
+
+const camelCaseSlug = words.map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)).join('');
+
   const handleGoNext = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   }
@@ -26,7 +30,7 @@ function Genere() {
       <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none" }}>
         <Grid>
           <Typography className="pageTitle">
-            Tutti i giochi {slug} 🎮
+            Tutti i giochi {camelCaseSlug} 🎮
           </Typography>
           <p>Clicca su un gioco e scopri di più.</p>
         </Grid>
