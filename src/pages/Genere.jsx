@@ -11,7 +11,7 @@ function Genere() {
   const { slug } = useParams();
   const { giochi, error, loading } = getGameByGenre(currentPage, slug);
 
-  const words = slug.split('-');
+  const words = slug.split('.');
 
 const camelCaseSlug = words.map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)).join('');
 
