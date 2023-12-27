@@ -1,0 +1,278 @@
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff; 
+}
+
+.swiper-button-next {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-left: 3px;
+  width: 25px;
+  height: 25px;
+}
+.swiper-button-prev {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-right: 3px;
+  width: 25px;
+  height: 25px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px; 
+}
+
+.MuiCardMedia-root.MuiCardMedia-media.MuiCardMedia-img {
+  width: 100% !important;
+  height: 250px !important;
+}
+
+.MuiCardContent-root {
+  min-height: 130px;
+  align-content: center !important;
+  display: grid!important;
+}
+
+
+
+.pageTitle {
+  font-weight: 700!important;
+  letter-spacing: -1px!important;
+  font-size: 50px!important;
+  line-height: 50px!important;
+}
+
+
+.cardLink {
+  text-decoration: none!important;
+}
+
+div.BoxDiscord {
+  background-color:#5468ff;
+  padding:40px;
+}
+
+.MenuNavigazioneMobile {
+  position:fixed!important;
+  width:100%!important;
+  bottom:0px!important;
+}
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-hyum1k-MuiToolbar-root
+{
+display: none !important;
+}
+.MuiButtonBase-root.MuiListItemButton-root.MuiListItemButton-gutters.css-k91dsm-MuiButtonBase-root-MuiListItemButton-root:hover
+{
+background-color: rgba(230, 255, 112, 0.24);
+border-radius: 5px;
+}
+
+.MuiInputBase-root.MuiInputBase-colorPrimary.css-f49a0c-MuiInputBase-root {
+  width: 100%;
+}
+
+
+.appbarGamix {
+  padding: 10px;
+  background-image: none!important;
+  background-color: #18181b!important;   
+  box-shadow: none!important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff; 
+}
+
+.swiper-button-next {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-left: 3px;
+  width: 25px;
+  height: 25px;
+}
+.swiper-button-prev {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-right: 3px;
+  width: 25px;
+  height: 25px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px; 
+}
+
+.MuiCardMedia-root.MuiCardMedia-media.MuiCardMedia-img {
+  width: 100% !important;
+  height: 250px !important;
+}
+
+.MuiCardContent-root {
+  min-height: 130px;
+  align-content: center !important;
+  display: grid!important;
+}
+
+
+
+.pageTitle {
+  font-weight: 700!important;
+  letter-spacing: -1px!important;
+  font-size: 50px!important;
+  line-height: 50px!important;
+}
+
+
+.cardLink {
+  text-decoration: none!important;
+}
+
+div.BoxDiscord {
+  background-color:#5468ff;
+  padding:40px;
+}
+
+.MuiLink-root {
+  color: #fff!important;
+  text-decoration: none!important;
+}
+
+.sidebarIconCP {
+vertical-align: middle;
+  display: inline-flex;
+  width: 100%;
+  padding:10px;
+  color: #fff;
+  margin: 10px 0px;
+  text-decoration: none;
+}
+
+.sidebarIconCP:hover {
+  vertical-align: middle;
+    display: inline-flex;
+    width: 100%;
+    padding:10px;
+    color: #121212;
+    margin: 10px 0px;
+    background-color: #e6ff70!important;
+    border-radius: 10px;
+  }
+
+.sidebarText {
+  padding:10px;
+  width: 100%!important;
+  text-align: center;
+  color: #fff;
+
+}
+.sidebarText:hover {
+    background-color: #e6ff70!important;
+    border-radius: 10px;
+    color:#121212!important;
+    text-align: center;
+  }
+
+  .sidebarIcon {
+    padding:7px 5px 2px 5px;
+    width: 100%!important;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px 0px;
+  
+  }
+  .sidebarIcon:hover {
+      background-color: #e6ff70!important;
+      border-radius: 10px;
+      color:#121212!important;
+      text-align: center;
+    }
+  
+  .iconLg {
+    font-size: 30px!important;
+  }  
+
+  /* Aggiungi stile al testo all'interno di ListItemButton quando è in hover */
+  .iconList:hover .MuiTypography-root {
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Aggiungi stile all'icona all'interno di ListItemButton quando è in hover */
+  .iconList:hover .MuiSvgIcon-root {
+    color: black;
+  }
+  
+  span.linkSidebar {
+    padding-left:15px;
+    padding-top:2px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    font-size: 18px;
+  }
+  
+  .swiper-button-next,
+.swiper-button-prev {
+  color: #fff; 
+}
+
+.swiper-button-next {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-left: 3px;
+  width: 25px;
+  height: 25px;
+}
+.swiper-button-prev {
+  background-color: #121212;
+  border-radius: 5px;
+  padding-right: 3px;
+  width: 25px;
+  height: 25px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px; 
+}
+
+.MuiCardMedia-root.MuiCardMedia-media.MuiCardMedia-img {
+  width: 100% !important;
+  height: 250px !important;
+}
+
+.MuiCardContent-root {
+  min-height: 130px;
+  align-content: center !important;
+  display: grid!important;
+}
+
+
+
+.pageTitle {
+  font-weight: 700!important;
+  letter-spacing: -1px!important;
+  font-size: 50px!important;
+  line-height: 50px!important;
+}
+
+.activeNavItem {
+  background-color: #e6ff70!important; /* Assicurati di utilizzare il colore desiderato per lo sfondo */
+  color: #121212!important; /* Colore del testo quando attivo */
+  border-radius:5px!important;
+}
+
+.activeNavItem .MuiSvgIcon-root {
+  color: #121212!important; /* Colore dell'icona quando attivo */
+}
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.buttonCerca.css-19z2ken-MuiButtonBase-root-MuiIconButton-root
+{
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #e6ff70;
+  border-radius: 5px;
+  color:#121212;
+}
