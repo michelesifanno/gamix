@@ -112,7 +112,6 @@ function Account() {
         alert(error.message);
       } else {
         console.log('Commento rimosso con successo!');
-        // Aggiorna la lista dei preferiti dopo la rimozione
         getComments();
       }
     } catch (error) {
@@ -122,7 +121,7 @@ function Account() {
   };
 
   return (
-    <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none" }}>
+    <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none", minHeight:"100vh"}}>
       <Grid>
         <Typography className="pageTitle">
           Benvenuto {profile && (profile.username || session.user.user_metadata.full_name)} ✨
