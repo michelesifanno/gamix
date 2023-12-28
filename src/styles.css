@@ -267,7 +267,7 @@ vertical-align: middle;
 .activeNavItem .MuiSvgIcon-root {
   color: #121212!important; /* Colore dell'icona quando attivo */
 }
-.buttonCerca
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.buttonCerca.css-bgq9r
 {
   font-size: 14px!important;
   font-weight: 700!important;
