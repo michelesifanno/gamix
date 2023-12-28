@@ -46,7 +46,7 @@ function Search() {
 
   return (
     <>
-      <Container sx={{ padding: '80px 0px 20px 0px' }}>
+      <Container sx={{ padding: '80px 0px 20px 0px', minHeight:"100vh" }}>
         <Grid>
           <Typography className="pageTitle">
             🔎 Ricerca per: "{query}"

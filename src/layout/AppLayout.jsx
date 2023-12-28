@@ -4,8 +4,7 @@ import AppNavbar from '../components/AppNavbar';
 import Footer from '../components/AppFooter'; 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Container, Grid, useTheme, Box, IconButton, Toolbar, List, Divider } from '@mui/material';
-import FixedBottomNavigation from '../components/FixedBottomNavigation';
+import { Grid, useTheme, Box, IconButton, Toolbar, List, Divider } from '@mui/material';
 import WestTwoToneIcon from '@mui/icons-material/WestTwoTone';
 import EastTwoToneIcon from '@mui/icons-material/EastTwoTone';
 import MainListItems from '../components/MainListItems';
@@ -122,9 +121,6 @@ function AppLayout() {
               <Outlet />
             </Grid>
           </Grid>
-          <Box position="fixed" bottom={0} width="100%" sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', zIndex: '99999' } }}>
-            <FixedBottomNavigation />
-          </Box>
           <Footer />
         </Box>
       </Box>

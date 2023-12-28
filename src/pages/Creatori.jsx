@@ -24,7 +24,7 @@ function Creatori() {
 
   return (
     <>
-      <Container fullWidth disableGutters sx={{padding:"60px 20px 0px 20px", width:"100%!important", maxWidth: "none"}}>
+      <Container fullWidth disableGutters sx={{padding:"60px 20px 0px 20px", width:"100%!important", maxWidth: "none", minHeight:"100vh"}}>
         <Grid>
           <Typography className="pageTitle">
             Scegli per Creator 👨🏻‍💻

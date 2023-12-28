@@ -16,8 +16,8 @@ function Creator ({ creator }) {
                 <Card>
                     <CardMedia
                         sx={{
-                            height: 200, // Set the height of the CardMedia
-                            backgroundSize: 'cover', // Make sure the background image covers the entire area
+                            height: 200, 
+                            backgroundSize: 'cover', 
                             backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%), url(${creator.image})`, // Set the background image
                             padding: '40px',
                             minHeight: '400px',

@@ -1,16 +1,37 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Container, Typography, Grid, Button, TextField, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { Container, Typography, Grid, Avatar, List, ListItem, ListItemText, Divider, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import supabase from '../supabase/client';
 import AppContext from '../context/AppContext';
 import useProfile from '../hooks/useProfile';
 import getProfileImg from '../utils/getProfileImage';
 import formatMessageDate from '../utils/formatMessageDate';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 
 function Account() {
   const { session } = useContext(AppContext);
   const { profile, loading } = useProfile();
   const [comments, setComments] = useState([]);
   const [favorites, setFavorites] = useState([]);
+
+
+  const getFavorites = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('favorites')
+        .select('*')
+        .eq('profile_id', session.user.id);
+
+      if (error) {
+        alert(error.message);
+      } else {
+        setFavorites(data);
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
 
   useEffect(() => {
     const getComments = async () => {
@@ -44,8 +65,30 @@ function Account() {
     getFavorites();
   }, [session.user.id]);
 
+  const removeFromFavorites = async (gameId) => {
+    try {
+      const { error } = await supabase
+        .from('favorites')
+        .delete()
+        .eq('game_id', gameId)
+        .eq('profile_id', session.user.id);
+
+      if (error) {
+        console.error(error);
+        alert(error.message);
+      } else {
+        console.log('Favorito rimosso con successo!');
+        // Aggiorna la lista dei preferiti dopo la rimozione
+        getFavorites();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
   return (
-    <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none" }}>
+    <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none", minHeight:"100vh" }}>
       <Grid>
         <Typography className="pageTitle">
           Benvenuto {profile && (profile.username || session.user.user_metadata.full_name)} ✨
@@ -55,57 +98,82 @@ function Account() {
         {loading && <progress />}
         <Grid container>
           <Grid item xs={12}>
-            <img
-              src={profile && getProfileImg(profile.avatar_url)}
+            <Avatar
               alt="profile"
-              width={200}
+              src={profile && getProfileImg(profile.avatar_url)}
+              sx={{ width: 200, height: 200, marginBottom: '20px' }}
             />
-                        <details>
-              <summary>Le tue Reviews</summary>
-              <List>
-                {comments.map((c) => (
-                  <React.Fragment key={c.id}>
-                    <ListItem alignItems="flex-start">
-                      <ListItemText
-                        primary={c.comment_title}
-                        secondary={
-                          <>
-                            <Typography
-                              component="span"
-                              variant="body2"
-                              color="text.primary"
-                            >
-                              {c.comment_content}
-                            </Typography>
-                            <div>
-                              <Typography component="span" variant="body2" color="text.primary">
-                                Published by: {c.profile.username}
+            <br />
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography variant="h6" style={{ fontWeight: 'bold' }}>Le tue Reviews</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <List>
+                  {comments.map((c) => (
+                    <React.Fragment key={c.id}>
+                      <ListItem alignItems="flex-start" style={{ marginBottom: '15px' }}>
+                        <ListItemText
+                          primary={<Typography variant="h6" style={{ fontWeight: 'bold' }}>{c.comment_title}</Typography>}
+                          secondary={
+                            <>
+                              <Typography
+                                component="div"
+                                variant="body1"
+                                color="text.primary"
+                                style={{ marginBottom: '8px' }}
+                              >
+                                {c.comment_content}
                               </Typography>
-                              <Typography component="span" variant="body2" color="text.primary">
-                                {formatMessageDate(c.created_at)}
-                              </Typography>
-                            </div>
-                          </>
-                        }
-                      />
-                    </ListItem>
-                    <Divider/>
-                  </React.Fragment>
-                ))}
-              </List>
-            </details>
+                              <div>
+                                <Typography component="span" variant="body2" color="text.primary">
+                                  Pubblicato da: {c.profile.username}
+                                </Typography>
+                                <Typography component="span" variant="body2" color="text.primary" style={{ marginLeft: '10px' }}>
+                                  {formatMessageDate(c.created_at)}
+                                </Typography>
+                              </div>
+                            </>
+                          }
+                        />
+                      </ListItem>
+                      <Divider style={{ backgroundColor: '#ccc' }}/>
+                    </React.Fragment>
+                  ))}
+                </List>
+              </AccordionDetails>
+            </Accordion>
 
-            <details>
-              <summary>I tuoi Preferiti</summary>
-              <List>
-                {favorites.map((favGame) => (
-                  <ListItem key={favGame.id}>
-                    <ListItemText primary={favGame.game_name} />
-                  </ListItem>
-                ))}
-              </List>
-            </details>
-
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
+              >
+                <Typography variant="h6" style={{ fontWeight: 'bold' }}>I tuoi Preferiti</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+        <List>
+          {favorites.map((favGame) => (
+            <React.Fragment key={favGame.id}>
+              <ListItem style={{ marginBottom: '10px' }}>
+                <ListItemText
+                  primary={<Typography variant="h6" style={{ fontWeight: 'bold' }}>
+                    {favGame.game_name}
+                  </Typography>}
+                />
+                <DeleteTwoToneIcon color='red' onClick={() => removeFromFavorites(favGame.game_id)} />
+              </ListItem>
+              <Divider style={{ backgroundColor: '#ccc' }} />
+            </React.Fragment>
+          ))}
+        </List>
+      </AccordionDetails>
+            </Accordion>
           </Grid>
         </Grid>
       </Container>

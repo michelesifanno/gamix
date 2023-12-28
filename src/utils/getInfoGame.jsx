@@ -137,9 +137,6 @@ function getInfoGame(slug) {
   // Restituzione di tutte le informazioni richieste
   return {
     game: data, 
-    movies,
-    achievements,
-    stores,
     screenshots,
     error, 
     loading

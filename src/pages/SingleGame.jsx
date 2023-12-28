@@ -2,7 +2,7 @@ import { React, useContext, useState, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import { useParams, Link } from 'react-router-dom';
 import getInfoGame from '../utils/getInfoGame'
-import { Container, Grid, Typography, CircularProgress, Alert, Box, Card, CardMedia, Divider, TextField, Button, Paper } from "@mui/material";
+import { Container, Grid, Typography, CircularProgress, Alert, Box, Card, CardMedia, Divider, Button } from "@mui/material";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import useProfile from '../hooks/useProfile'
@@ -19,24 +19,26 @@ function SingleGame() {
   const { session } = useContext(AppContext);
   const { profile } = useProfile();
   const { slug } = useParams();
-  const { game, movies, achievements, stores, screenshots, error, loading } = getInfoGame(slug);
+  const { game, screenshots, error, loading } = getInfoGame(slug);
 
   const [fav, setFav] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
+
 
   const getFavGame = async () => {
     const { data, error } = await supabase
       .from('favorites')
       .select('*')
       .eq('game_id', game.id)
-      .eq('game_name', game.name_original)
       .eq('profile_id', session.user.id);
-
+  
     if (error) {
       alert(error.message);
     } else {
-      setFav(data || []); // Imposta l'array vuoto se data è null o undefined
+      setIsFavorite(!!data.length);
     }
   };
+  
 
 
   const addToFavorites = async () => {
@@ -79,11 +81,12 @@ function SingleGame() {
     }
   };
 
+
   useEffect(() => {
     if (session) {
       getFavGame();
     }
-  }, []);
+  }, [session, game.id]);
 
 
   if (loading) {
@@ -183,15 +186,17 @@ function SingleGame() {
               {profile && (
                 <Grid item xs={4}>
                   <Button
-                    variant={fav.length !== 0 ? 'outlined' : 'contained'}
+                    variant={isFavorite ? 'outlined' : 'contained'}
                     size='large'
                     color='secondary'
-                    onClick={fav.length !== 0 ? removeFromFavorites : addToFavorites}
+                    onClick={isFavorite ? removeFromFavorites : addToFavorites}
                     sx={{ width: '100%' }}
-                    endIcon={fav.length !== 0 ? <HeartBrokenTwoToneIcon /> : <FavoriteTwoToneIcon />}
+                    endIcon={isFavorite ? <HeartBrokenTwoToneIcon /> : <FavoriteTwoToneIcon />}
+                    disabled={!profile || loading}  // Impedisce di fare clic se non c'è un profilo o se la pagina sta ancora caricando
                   >
-                    {fav.length !== 0 ? 'Lo odio!' : 'Lo adoro!'}
+                    {isFavorite ? 'Lo odio!' : 'Lo adoro!'}
                   </Button>
+
                 </Grid>
               )}
               {profile && (

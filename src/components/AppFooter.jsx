@@ -23,19 +23,8 @@ export default function Footer() {
   return (
     <Box sx={footerStyle}>
       <Typography variant="body2" color="inherit" sx={{ fontWeight: '700', letterSpacing: '-0.5px' }}>
-        &copy; 2023 Gamix Hub Project
+        &copy; 2023 Gamix Hub Project - Michele Sifanno - michelesifanno.ms@gmail.com
       </Typography>
-      <div>
-        <Link href="#" target="_blank" rel="noopener" underline="hover" sx={linkStyle}>
-          Privacy Policy
-        </Link>
-        <Link href="#" target="_blank" rel="noopener" underline="hover" sx={linkStyle}>
-          Terms of Service
-        </Link>
-        <Link href="#" target="_blank" rel="noopener" underline="hover" sx={linkStyle}>
-          Contact Us
-        </Link>
-      </div>
     </Box>
   );
 }

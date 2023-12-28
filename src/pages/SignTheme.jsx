@@ -26,11 +26,7 @@ function SignTheme() {
             </Grid>
           </Grid>
         </Container>
-  
-        <Box position="fixed" bottom={0} width="100%" sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', zIndex:'99999' } }}>
-          <FixedBottomNavigation />
-        </Box>
-  
+    
         <Footer />
   
         {/* Condizionalmente renderizza la pagina di login o logout in base allo stato dell'utente */}
