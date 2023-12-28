@@ -35,8 +35,6 @@ Gamix HUB è progettato per unire la community di giocatori, fornendo un'esperie
 
 ## Pages
 
-* Sostituisci questo elenco con le pagine che avrai nella tua app.
-
 1. Giochi - Pagina completa con tutti i giochi.
 2. Migliori - Pagina completa con tutti i giochi ordinati per recensioni positive.
 3. Nuove uscite - Pagina completa con tutti i nuovi giochi.
