@@ -250,7 +250,6 @@ vertical-align: middle;
 }
 
 
-
 .pageTitle {
   font-weight: 700!important;
   letter-spacing: -1px!important;
@@ -267,7 +266,7 @@ vertical-align: middle;
 .activeNavItem .MuiSvgIcon-root {
   color: #121212!important; /* Colore dell'icona quando attivo */
 }
-.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.buttonCerca.css-19z2ken-MuiButtonBase-root-MuiIconButton-root
+.buttonCerca
 {
   font-size: 14px!important;
   font-weight: 700!important;
