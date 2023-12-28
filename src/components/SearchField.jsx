@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputBase, IconButton, Paper } from '@mui/material';
+import { InputBase, IconButton, Paper, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchField = () => {
@@ -32,9 +32,9 @@ const SearchField = () => {
         onKeyUp={handleKeyUp} // Cattura il tasto Enter
         sx={{ flex: 1 }}
         />
-      <IconButton onClick={handleSearch} sx={{ p: '10px' }} className='buttonCerca'>
+      <Button onClick={handleSearch} sx={{ p: '10px' }} className='buttonCerca' variant='contained' color='primary'>
         Cerca
-      </IconButton>
+      </Button>
     </Paper>
   );
 };
