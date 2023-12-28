@@ -105,7 +105,7 @@ function Comments({ game }) {
                     <Typography variant="subtitle1" style={{ marginBottom: '10px' }}>
                         {game.name} Reviews
                     </Typography>
-
+                    {comments.length==0 ? <p>Ancora nessuna recensione.</p> : null}
                     {comments.map((comment) => (
                         <Paper key={comment.id} elevation={3} sx={{ padding: '10px', marginBottom: '10px' }}>
                             <div>
