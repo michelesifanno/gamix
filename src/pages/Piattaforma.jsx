@@ -10,6 +10,11 @@ function Genere() {
   const [currentPage, setCurrentPage] = useState(1);
   const { slug } = useParams();
   const { giochi, error, loading } = getGameByPlatform(currentPage, slug);
+  const words = slug.split('-');
+
+  // Trasforma ogni parola in modo che inizi con una lettera maiuscola
+  const camelCaseSlug = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
 
   const handleGoNext = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -26,7 +31,7 @@ function Genere() {
       <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none" }}>
         <Grid>
           <Typography className="pageTitle">
-            Giochi per {slug} 🖥️
+            Giochi per {camelCaseSlug} 🖥️
           </Typography>
           <p>Clicca su un gioco e scopri di più.</p>
         </Grid>
