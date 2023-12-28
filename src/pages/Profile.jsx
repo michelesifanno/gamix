@@ -73,7 +73,7 @@ export default function Settings() {
 
   return (
     <>
-      <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none", minHeight:"100vh" }}>
+      <Container fullWidth disableGutters sx={{ padding: "60px 20px 0px 20px", width: "100%!important", maxWidth: "none"}}>
         <Grid>
           <Typography className="pageTitle">
             Il tuo profilo ✨
