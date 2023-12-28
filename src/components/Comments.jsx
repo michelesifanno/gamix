@@ -103,7 +103,7 @@ function Comments({ game }) {
                         </Typography>
                     )}
                     <Typography variant="subtitle1" style={{ marginBottom: '10px' }}>
-                        {game.name} Reviews
+                        {game.name} - Recensioni
                     </Typography>
                     {comments.length==0 ? <p>Ancora nessuna recensione.</p> : null}
                     {comments.map((comment) => (
@@ -124,11 +124,11 @@ function Comments({ game }) {
                     ))}
                     {session && profile && isReviewFormVisible && (
                         <form onSubmit={handleReviewSubmit} style={{ marginTop: '20px' }}>
-                            <Typography variant="h6">Add a Review</Typography>
+                            <Typography variant="h6">Aggiungi recensione</Typography>
                             <TextField
                                 type="text"
                                 name="title"
-                                placeholder="Review Title"
+                                placeholder="Titolo"
                                 fullWidth
                                 variant="outlined"
                                 margin="normal"
@@ -136,7 +136,7 @@ function Comments({ game }) {
                             <TextField
                                 type="text"
                                 name="content"
-                                placeholder="Write your review here..."
+                                placeholder="Scrivi qui la tua recensione..."
                                 fullWidth
                                 multiline
                                 rows={4}
@@ -144,7 +144,7 @@ function Comments({ game }) {
                                 margin="normal"
                             />
                             <Button type="submit" variant="contained" color="primary" size="large" sx={{ marginTop: '16px' }}>
-                                Publish Review
+                                Pubblica recensione
                             </Button>
                         </form>
                     )}

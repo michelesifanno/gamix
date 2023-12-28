@@ -33,6 +33,18 @@ function Account() {
     }
   };
 
+  const getComments = async () => {
+    const { data, error } = await supabase
+      .from('comments')
+      .select('*, profile: profiles(username)')
+      .eq('profile_id', session.user.id);
+    if (error) {
+      alert(error.message);
+    } else {
+      setComments(data);
+    }
+  };
+
   useEffect(() => {
     const getComments = async () => {
       const { data, error } = await supabase
@@ -80,6 +92,28 @@ function Account() {
         console.log('Favorito rimosso con successo!');
         // Aggiorna la lista dei preferiti dopo la rimozione
         getFavorites();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
+  const removeComments = async (gameId) => {
+    try {
+      const { error } = await supabase
+        .from('comments')
+        .delete()
+        .eq('game_id', gameId)
+        .eq('profile_id', session.user.id);
+
+      if (error) {
+        console.error(error);
+        alert(error.message);
+      } else {
+        console.log('Commento rimosso con successo!');
+        // Aggiorna la lista dei preferiti dopo la rimozione
+        getComments();
       }
     } catch (error) {
       console.error(error);
@@ -137,6 +171,8 @@ function Account() {
                                   {formatMessageDate(c.created_at)}
                                 </Typography>
                               </div>
+                              <DeleteTwoToneIcon color='red' onClick={() => removeComments(c.game_id)} />
+
                             </>
                           }
                         />
